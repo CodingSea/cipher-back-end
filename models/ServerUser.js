@@ -1,26 +1,13 @@
 const mongoose  = require("mongoose")
 
 const ServerUserSchema = new mongoose.Schema({
-
-    username: {
-        type: String,
-        required: true
-    },
-    profileImage:{
-        type:String
-    },
-    email:{
-        type:String,
-        required: true
-    },
-    password:{
-        type:String,
-        required:true
-    },
-    friends:[mongoose.Types.ObjectId]
-
+    user:[mongoose.Types.ObjectId]
+    ,
+     role: {
+                type: String,
+                enum: ['Member', 'Admin', 'Owner'] }
 })
 
 const ServerUser = module('ServerUser', ServerUserSchema)
 
-module.exports = Server
+module.exports = ServerUser
