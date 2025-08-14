@@ -6,7 +6,7 @@ const morgan = require("morgan");
 const cors = require("cors");
 
 // middleware
-app.use(cors({origin: "http://localhost:5173"}));
+app.use(cors({ origin: "http://localhost:5173" }));
 app.use(morgan("dev"));
 app.use(express.json());
 
