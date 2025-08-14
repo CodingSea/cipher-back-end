@@ -1,4 +1,4 @@
-const mongoose  = require("mongoose")
+const mongoose  = require("mongoose");
 
 const ServerUserSchema = new mongoose.Schema({
     user:[mongoose.Types.ObjectId]
@@ -6,8 +6,8 @@ const ServerUserSchema = new mongoose.Schema({
      role: {
                 type: String,
                 enum: ['Member', 'Admin', 'Owner'] }
-})
+});
 
-const ServerUser = module('ServerUser', ServerUserSchema)
+const ServerUser = module('ServerUser', ServerUserSchema);
 
-module.exports = ServerUser
+module.exports = ServerUser;
