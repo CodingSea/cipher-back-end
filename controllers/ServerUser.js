@@ -28,9 +28,9 @@ async function ServerUserInfo(req, res) {
     }
 }
 
-async function UpdateServerUser(req,res) {
+async function UpdateServerUser(req, res) {
     try {
-        const UpdatedServerUser = await ServerUser.findById(req.params.id,req.body,{new:true})
+        const UpdatedServerUser = await ServerUser.findById(req.params.id, req.body, { new: true })
         res.status(201).json(UpdatedServerUser)
 
     } catch (error) {
