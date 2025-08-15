@@ -28,8 +28,19 @@ async function AllUsers(req, res) {
 
 }
 
+async function userInfo(req, res) {
+    try {
+        const singleUser = await User.findById(req.params.id)
+        res.status(201).json(singleUser)
+
+    } catch (error) {
+
+    }
+
+}
 module.exports = {
     createUser,
     UpdateUser,
-    AllUsers
+    AllUsers,
+    userInfo
 }
