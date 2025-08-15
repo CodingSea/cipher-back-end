@@ -11,7 +11,7 @@ async function createUser(req, res) {
 
 async function UpdateUser(req, res) {
     try {
-        const updatedUser = await User.findByIdAndUpdate
+        const updatedUser = await User.findByIdAndUpdate(req.params.id,req.body,{new:true})
         res.status(201).json(updatedUser)
     } catch (error) {
         res.status(500).json({ error: err.message })
