@@ -11,12 +11,25 @@ async function createUser(req, res) {
 
 async function UpdateUser(req, res) {
     try {
-        const updatedUser=await User.findByIdAndUpdate
+        const updatedUser = await User.findByIdAndUpdate
+        res.status(201).json(updatedUser)
     } catch (error) {
-
+        res.status(500).json({ error: err.message })
     }
 }
 
-module.exports(
-    createUser
-)
+async function AllUsers(req, res) {
+    try {
+        const allUserInfo = await User.find()
+        res.status(201).json(allUserInfo)
+    } catch (error) {
+        res.status(500).json({ error: err.message })
+    }
+
+}
+
+module.exports = {
+    createUser,
+    UpdateUser,
+    AllUsers
+}
