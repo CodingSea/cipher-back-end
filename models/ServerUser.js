@@ -8,6 +8,6 @@ const ServerUserSchema = new mongoose.Schema({
                 enum: ['Member', 'Admin', 'Owner'] }
 });
 
-const ServerUser = module('ServerUser', ServerUserSchema);
+const ServerUser = mongoose.model('ServerUser', ServerUserSchema);
 
 module.exports = ServerUser;
