@@ -1,11 +1,12 @@
-const mongoose  = require("mongoose");
+const mongoose = require("mongoose");
 
 const ServerUserSchema = new mongoose.Schema({
-    user:[mongoose.Types.ObjectId]
+    user: [mongoose.Types.ObjectId]
     ,
-     role: {
-                type: String,
-                enum: ['Member', 'Admin', 'Owner'] }
+    role: {
+        type: String,
+        enum: ['Member', 'Admin', 'Owner']
+    }
 });
 
 const ServerUser = mongoose.model('ServerUser', ServerUserSchema);
