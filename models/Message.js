@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const messageSchema = new mongoose.Schema
 (
     {
-        user: { type: mongoose.Types.ObjectId, required: true },
+        user: { type: mongoose.Types.ObjectId, ref: "User" },
         text: String
     },
     { timestamps: true }
