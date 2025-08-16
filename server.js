@@ -18,6 +18,8 @@ mongoose.connection.on("connected", () =>
 
 const authRoutes = require("./routes/authRoutes");
 app.use("/auth", authRoutes);
+const serverRoutes = require("./routes/serverRoutes");
+app.use("/server", serverRoutes);
 
 
 app.listen(process.env.PORT, () =>
