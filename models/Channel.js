@@ -4,7 +4,7 @@ const channelSchema = new mongoose.Schema
 (
     {
         title: { type: String, required: true },
-        messages: [mongoose.Types.ObjectId]
+        messages: [{type: mongoose.Types.ObjectId, ref: "Message"}]
     }
 );
 

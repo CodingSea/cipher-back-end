@@ -2,22 +2,26 @@ const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
 
-    username: {
+    username: 
+    {
         type: String,
         required: true
     },
-    profileImage: {
+    profileImage: 
+    {
         type: String
     },
-    email: {
+    email: 
+    {
         type: String,
         required: true
     },
-    password: {
+    password: 
+    {
         type: String,
         required: true
     },
-    friends: [mongoose.Types.ObjectId]
+    friends: [{ type: mongoose.Types.ObjectId, ref: "User" }]
 
 })
 
