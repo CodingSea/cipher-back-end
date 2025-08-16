@@ -39,7 +39,6 @@ async function allUsers(req, res)
     }
 
 }
-
 module.exports = {
     createUser,
     updateUser: updateUser,
