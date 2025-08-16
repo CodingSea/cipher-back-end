@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 const dmSchema = new mongoose.Schema
 (
     {
-        messages: [mongoose.Types.ObjectId],
-        users: [mongoose.Types.ObjectId]
+        messages: [{ type: mongoose.Types.ObjectId, ref: "Message" }],
+        users: [{ type: mongoose.Types.ObjectId, ref: "User" }]
     }
 );
 

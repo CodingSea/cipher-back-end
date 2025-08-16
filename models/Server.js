@@ -4,8 +4,13 @@ const serverSchema = new mongoose.Schema
 (
     {
         title: {type: String, required: true},
-        serverUsers: [mongoose.Types.ObjectId],
-        channels: [mongoose.Types.ObjectId]
+        users: [
+            {
+                user: { type: mongoose.Types.ObjectId, ref: 'User', required: true },
+                role: { type: String, enum: ['Member', 'Admin', 'Owner'] }
+            }
+        ],
+        channels: [{type: mongoose.Types.ObjectId, ref: "Channel"}]
     }
 );
 

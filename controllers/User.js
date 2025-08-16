@@ -13,12 +13,16 @@ async function createUser(req, res)
 }
 
 
-async function UpdateUser(req, res) {
-    try {
-        const updatedUser = await User.findByIdAndUpdate
-        res.status(201).json(updatedUser)
-    } catch (error) {
-        res.status(500).json({ error: err.message })
+async function updateUser(req, res)
+{
+    try
+    {
+        const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        res.status(200).json(updatedUser);
+    } 
+    catch (error)
+    {
+        res.status(500).json({ error: err.message });
     }
 }
 
@@ -35,20 +39,8 @@ async function allUsers(req, res)
     }
 
 }
-
-async function getUser(req, res) {
-    try {
-        const singleUser = await User.findById(req.params.id)
-        res.status(201).json(singleUser)
-
-    } catch (error) {
-
-    }
-
-}
 module.exports = {
     createUser,
-    UpdateUser,
-    allUsers,
-    getUser
+    updateUser: updateUser,
+    allUsers: allUsers
 }
