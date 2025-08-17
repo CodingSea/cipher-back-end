@@ -22,4 +22,6 @@ router.get("/:serverId/channel/", serverController.getAllChannelsInServer);
 
 router.get("/:serverId/channel/:id", serverController.getChannel);
 
+router.put("/:serverId/channel/:id", serverController.updateChannel);
+
 module.exports = router;

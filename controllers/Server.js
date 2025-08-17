@@ -148,7 +148,7 @@ async function updateChannel(req, res)
 {
     try
     {
-        const updatedChannel = await Channel.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        const updatedChannel = await Server.findById(req.params.serverId).channels.findByIdAndUpdate(req.params.id, req.body);
         if (updatedChannel)
         {
             res.status(200).json(updatedChannel);
@@ -168,7 +168,7 @@ async function deleteChannel(req, res)
 {
     try
     {
-        const Channel = await Channel.findByIdAndDelete(req.params.id);
+        const Channel = await Server.findById(req.params.serverId).channels.findByIdAndDelete(req.params.id);;
         res.status(200).json(Channel);
     }
     catch (error)
@@ -186,5 +186,6 @@ module.exports =
     deleteServer,
     createChannel,
     getAllChannelsInServer,
-    getChannel
+    getChannel,
+    updateChannel
 }
