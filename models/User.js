@@ -1,22 +1,22 @@
 const mongoose = require("mongoose");
-
+const bcrypt = require("bcrypt")
 const userSchema = new mongoose.Schema({
 
-    username: 
+    username:
     {
         type: String,
         required: true
     },
-    profileImage: 
+    profileImage:
     {
         type: String
     },
-    email: 
+    email:
     {
         type: String,
         required: true
     },
-    password: 
+    passwordHash:
     {
         type: String,
         required: true
@@ -24,6 +24,11 @@ const userSchema = new mongoose.Schema({
     friends: [{ type: mongoose.Types.ObjectId, ref: "User" }]
 
 })
+
+userSchema.methods.validatePassword= function (password){
+      return bcrypt.compare(password, this.passwordHash)
+
+}
 
 const User = mongoose.model('User', userSchema);
 
