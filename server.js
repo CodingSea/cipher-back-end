@@ -16,13 +16,16 @@ mongoose.connection.on("connected", () =>
     console.log("Connected to DB");
 })
 
-const authRoutes = require("./routes/authRoutes");
-app.use("/auth", authRoutes);
+const usersRoutes = require("./routes/usersRoutes");
+app.use("/user", usersRoutes);
 const serverRoutes = require("./routes/serverRoutes");
 app.use("/server", serverRoutes);
 const channelRoutes = require("./routes/channelRoutes");
 app.use("/server/:serverId/channel", channelRoutes);
-
+const dmRoutes = require("./routes/dmRoutes");
+app.use("/dm",dmRoutes);
+const messageRoutes = require("./routes/messageRoutes");
+app.use("/message",messageRoutes)
 
 app.listen(process.env.PORT, () =>
 {
