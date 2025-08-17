@@ -37,16 +37,12 @@
 |--------|-----------------|------------------------------|
 | POST   | `/new`   | Create new server           |
 | GET    | `/`     | Get all servers             |
-| PUT    | `/:id` | Update server by ID         |
 | GET    | `/:id` | Get single server by ID    |
+| PUT    | `/:id` | Update server by ID         |
 | DELETE | `/:id` | Delete server by ID      |
-
-### /server
-
-| Method | Path            | Description                  |
 |--------|-----------------|------------------------------|
-| POST   | `/new`   | Create new server           |
-| GET    | `/`     | Get all servers             |
-| PUT    | `/:id` | Update server by ID         |
-| GET    | `/:id` | Get single server by ID    |
-| DELETE | `/:id` | Delete server by ID      |
+| POST   | `/:serverId/channel/new`   | Create new channel in the server           |
+| GET    | `/:serverId/channel/`     | Get all channels in the server             |
+| GET    | `/:serverId/channel/:id` | Get single channel by ID         |
+| PUT    | `/:serverId/channel/:id` |   Update channel by ID  |
+| DELETE | `/:serverId/channel/:id` | Delete channel by ID      |
