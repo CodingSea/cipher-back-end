@@ -3,10 +3,10 @@ const router = express.Router();
 const MessageController=require("../controllers/Message");
 
 router.post("/newMessage", MessageController.createMessage);//create new Message
-router.put("/Messages/:id", MessageController.UpdateMessage);//Update the Message
-router.get("/Messages",MessageController.AllMessageInfo);//all Message info
-router.get("/Messages/:id",MessageController.singleMessageInfo);//single Message info
-router.delete("/Messages/:id",MessageController.DeleMessage);//Delete Message
+router.put("/Messages/:id", MessageController.updateMessage);//Update the Message
+router.get("/Messages",MessageController.getAllMessages);//all Message info
+router.get("/Messages/:id",MessageController.getMessage);//get Message info
+router.delete("/Messages/:id",MessageController.deleteMessage);//Delete Message
 
 
 

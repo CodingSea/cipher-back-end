@@ -11,26 +11,26 @@ async function createMessage(req, res) {
 }
 
 
-async function AllMessageInfo(req, res) {
+async function getAllMessages(req, res) {
     try {
         const AllMessage = await Message.find()
-        res.status(201).json(AllMessage)
+        res.status(200).json(AllMessage)
     } catch (error) {
         res.status(500).json({ error: err.message })
     }
 }
 
-async function singleMessageInfo(req, res) {
+async function getMessage(req, res) {
     try {
         const MessageInfo = await Message.findById(req.params.id)
-        res.status(201).json(MessageInfo)
+        res.status(200).json(MessageInfo)
 
     } catch (error) {
         res.status(500).json({ error: err.message })
     }
 }
 
-async function DeleMessage(req, res) {
+async function deleteMessage(req, res) {
     try {
         const deletedMessage = await Message.findByIdAndUpdate(req.params.id)
         res.status(201).json(deletedMessage)
@@ -40,7 +40,7 @@ async function DeleMessage(req, res) {
     }
 }
 
-async function UpdateMessage(req,res) {
+async function updateMessage(req,res) {
     try {
         const updatedMessage = await Message.findByIdAndUpdate(req.params.id,req.body,{new:true})
         res.status(201).json(updatedMessage)
@@ -51,8 +51,8 @@ async function UpdateMessage(req,res) {
 
 module.exports = {
     createMessage,
-    AllMessageInfo,
-    singleMessageInfo,
-    DeleMessage,
-    UpdateMessage
+    getAllMessages,
+    getMessage,
+    deleteMessage,
+    updateMessage
 }

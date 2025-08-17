@@ -1,11 +1,11 @@
 const DM = require("../models/DM");
 
-async function createDm(req, res)
+async function createDM(req, res)
 {
     try
     {
-        const ceatedDm = await DM.create(req.body);
-        res.status(201).json(ceatedDm);
+        const ceatedDM = await DM.create(req.body);
+        res.status(201).json(ceatedDM);
     } 
     catch (error)
     {
@@ -13,26 +13,26 @@ async function createDm(req, res)
     }
 }
 
-async function getDm(req,res) {
+async function getDM(req,res) {
     try {
-        const singleDm = await DM.findById(req.params.id);
-                res.status(201).json(singleDm);
+        const singleDM = await DM.findById(req.params.id);
+                res.status(200).json(singleDM);
     } catch (error) {
                 res.status(500).json({ error: err.message });
 
     }
 }
 
-async function  getAllDm(req,res) {
+async function  getAllDM(req,res) {
     try {
-        const AllDm = await DM.find();
-        res.status(201).json(AllDm);
+        const AllDM = await DM.find();
+        res.status(200).json(AllDM);
     } catch (error) {
         res.status(500).json({ error: err.message });
     }
 }
 module.exports={
-    createDm,
-    getDm,
-    getAllDm
+    createDM,
+    getDM,
+    getAllDM
 }

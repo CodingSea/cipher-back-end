@@ -43,7 +43,7 @@ async function allUsers(req, res)
 async function getUser(req, res) {
     try {
         const userInfo = await User.findById(req.params.id)
-        res.status(201).json(userInfo)
+        res.status(200).json(userInfo)
 
     } catch (error) {
         res.status(500).json({ error: err.message })
