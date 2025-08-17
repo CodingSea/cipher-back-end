@@ -128,7 +128,7 @@ async function getChannel(req, res)
 {
     try
     {
-        const Channel = await Channel.findById(req.params.id);
+        const Channel = await Server.findById(req.params.serverId).channels.findById(req.params.id);
         if (Channel)
         {
             res.status(200).json(Channel);
@@ -185,5 +185,6 @@ module.exports =
     updateServer,
     deleteServer,
     createChannel,
-    getAllChannelsInServer
+    getAllChannelsInServer,
+    getChannel
 }

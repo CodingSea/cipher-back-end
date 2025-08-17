@@ -20,4 +20,6 @@ router.post("/:serverId/channel/new", serverController.createChannel);
 
 router.get("/:serverId/channel/", serverController.getAllChannelsInServer);
 
+router.get("/:serverId/channel/:id", serverController.getChannel);
+
 module.exports = router;
