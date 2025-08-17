@@ -13,4 +13,11 @@ router.put("/:id", serverController.updateServer);
 
 router.delete("/:id", serverController.deleteServer);
 
+
+// Channel Routes
+
+router.post("/:serverId/channel/new", serverController.createChannel);
+
+router.get("/:serverId/channel/", serverController.getAllChannelsInServer);
+
 module.exports = router;

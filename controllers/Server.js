@@ -104,11 +104,11 @@ async function createChannel(req, res)
     }
 }
 
-async function getAllChannels(req, res)
+async function getAllChannelsInServer(req, res)
 {
     try
     {
-        const allChannels = await Channel.find();
+        const allChannels = await Server.findById(req.params.serverId).channels;
         if (allChannels.length)
         {
             res.status(200).json(allChannels);
@@ -184,5 +184,6 @@ module.exports =
     getServer,
     updateServer,
     deleteServer,
-    createChannel
+    createChannel,
+    getAllChannelsInServer
 }
