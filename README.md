@@ -40,7 +40,6 @@
 | GET    | `/:id` | Get single server by ID    |
 | PUT    | `/:id` | Update server by ID         |
 | DELETE | `/:id` | Delete server by ID      |
-|--------|-----------------|------------------------------|
 | POST   | `/:serverId/channel/new`   | Create new channel in the server           |
 | GET    | `/:serverId/channel/`     | Get all channels in the server             |
 | GET    | `/:serverId/channel/:id` | Get single channel by ID         |
