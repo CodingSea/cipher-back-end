@@ -8,7 +8,7 @@ async function createUser(req, res)
     } 
     catch (error)
     {
-        res.status(500).json({ error: err.message })
+        res.status(500).json({ error: error.message })
     }
 }
 
@@ -22,7 +22,7 @@ async function updateUser(req, res)
     } 
     catch (error)
     {
-        res.status(500).json({ error: err.message });
+        res.status(500).json({ error: error.message });
     }
 }
 
@@ -35,7 +35,7 @@ async function allUsers(req, res)
     } 
     catch (error)
     {
-        res.status(500).json({ error: err.message });
+        res.status(500).json({ error: error.message });
     }
 
 }
