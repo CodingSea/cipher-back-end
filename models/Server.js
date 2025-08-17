@@ -10,7 +10,8 @@ const serverSchema = new mongoose.Schema
                 role: { type: String, enum: ['Member', 'Admin', 'Owner'] }
             }
         ],
-        channels: [{type: mongoose.Types.ObjectId, ref: "Channel"}]
+        channels: [{type: mongoose.Types.ObjectId, ref: "Channel"}],
+        serverImage: {type: String}
     }
 );
 
