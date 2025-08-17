@@ -5,7 +5,13 @@ async function createDM(req, res)
     try
     {
         const ceatedDM = await DM.create(req.body);
-        res.status(201).json(ceatedDM);
+        if (ceatedDM)
+        {
+            res.status(201).json(ceatedDM);
+        } else
+        {
+            res.status(204);
+        }
     }
     catch (error)
     {
@@ -18,11 +24,14 @@ async function getDM(req, res)
     try
     {
         const singleDM = await DM.findById(req.params.id);
-       if(singleDM){
-       
-        res.status(200).json(singleDM);}
-        else{
-            
+        if (singleDM)
+        {
+
+            res.status(200).json(singleDM);
+        }
+        else
+        {
+            res.status(204);
         }
     } catch (error)
     {
@@ -36,7 +45,14 @@ async function getAllDM(req, res)
     try
     {
         const AllDM = await DM.find();
-        res.status(200).json(AllDM);
+        if (AllDM.length)
+        {
+            res.status(200).json(AllDM);
+
+        } else
+        {
+            res.status(204);
+        }
     } catch (error)
     {
         res.status(500).json({ error: err.message });
