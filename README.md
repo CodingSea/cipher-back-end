@@ -1,10 +1,10 @@
 # cipher-back-end
 
-# API Routes
+## API Routes
 
-## baseUrl: "http://localhost:3000"
+### baseUrl: "http://localhost:3000"
 
-## /user
+### /user
 
 | Method | Path          | Description            |
 |--------|---------------|------------------------|
@@ -13,7 +13,7 @@
 | GET    | `/:id`  | Get single user by ID  |
 | PUT    | `/:id`  | Update user by ID      |
 
-## /dm
+### /dm
 
 | Method | Path        | Description            |
 |--------|-------------|------------------------|
@@ -21,7 +21,7 @@
 | GET    | `/`      | Get all DMs            |
 | GET    | `/:id`  | Get DM by ID           |
 
-## /message
+### /message
 
 | Method | Path            | Description                  |
 |--------|-----------------|------------------------------|
@@ -30,3 +30,23 @@
 | PUT    | `/:id` | Update message by ID         |
 | GET    | `/:id` | Get single message by ID     |
 | DELETE | `/:id` | Delete message by ID         |
+
+### /server
+
+| Method | Path            | Description                  |
+|--------|-----------------|------------------------------|
+| POST   | `/new`   | Create new server           |
+| GET    | `/`     | Get all servers             |
+| PUT    | `/:id` | Update server by ID         |
+| GET    | `/:id` | Get single server by ID    |
+| DELETE | `/:id` | Delete server by ID      |
+
+### /server
+
+| Method | Path            | Description                  |
+|--------|-----------------|------------------------------|
+| POST   | `/new`   | Create new server           |
+| GET    | `/`     | Get all servers             |
+| PUT    | `/:id` | Update server by ID         |
+| GET    | `/:id` | Get single server by ID    |
+| DELETE | `/:id` | Delete server by ID      |
