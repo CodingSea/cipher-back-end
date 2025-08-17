@@ -1,5 +1,13 @@
 const mongoose = require("mongoose");
 
+const channelSchema = new mongoose.Schema
+    (
+        {
+            title: { type: String, required: true },
+            messages: [{ type: mongoose.Types.ObjectId, ref: "Message" }]
+        }
+    );
+
 const serverSchema = new mongoose.Schema
     (
         {
@@ -10,7 +18,7 @@ const serverSchema = new mongoose.Schema
                     role: { type: String, enum: ['Member', 'Admin', 'Owner'] }
                 }
             ],
-            channels: [{ type: mongoose.Types.ObjectId, ref: "Channel" }],
+            channels: [channelSchema],
             serverImage: { type: String }
         }
     );

@@ -20,8 +20,6 @@ const usersRoutes = require("./routes/usersRoutes");
 app.use("/user", usersRoutes);
 const serverRoutes = require("./routes/serverRoutes");
 app.use("/server", serverRoutes);
-const channelRoutes = require("./routes/channelRoutes");
-app.use("/server/:serverId/channel", channelRoutes);
 const dmRoutes = require("./routes/dmRoutes");
 app.use("/dm",dmRoutes);
 const messageRoutes = require("./routes/messageRoutes");
