@@ -6,32 +6,43 @@ async function createDM(req, res)
     {
         const ceatedDM = await DM.create(req.body);
         res.status(201).json(ceatedDM);
-    } 
+    }
     catch (error)
     {
         res.status(500).json({ error: err.message });
     }
 }
 
-async function getDM(req,res) {
-    try {
+async function getDM(req, res)
+{
+    try
+    {
         const singleDM = await DM.findById(req.params.id);
-                res.status(200).json(singleDM);
-    } catch (error) {
-                res.status(500).json({ error: err.message });
+       if(singleDM){
+       
+        res.status(200).json(singleDM);}
+        else{
+            
+        }
+    } catch (error)
+    {
+        res.status(500).json({ error: err.message });
 
     }
 }
 
-async function  getAllDM(req,res) {
-    try {
+async function getAllDM(req, res)
+{
+    try
+    {
         const AllDM = await DM.find();
         res.status(200).json(AllDM);
-    } catch (error) {
+    } catch (error)
+    {
         res.status(500).json({ error: err.message });
     }
 }
-module.exports={
+module.exports = {
     createDM,
     getDM,
     getAllDM
