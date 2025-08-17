@@ -187,5 +187,6 @@ module.exports =
     createChannel,
     getAllChannelsInServer,
     getChannel,
-    updateChannel
+    updateChannel,
+    deleteChannel
 }

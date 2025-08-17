@@ -24,4 +24,6 @@ router.get("/:serverId/channel/:id", serverController.getChannel);
 
 router.put("/:serverId/channel/:id", serverController.updateChannel);
 
+router.delete("/:serverId/channel/:id", serverController.deleteChannel);
+
 module.exports = router;
