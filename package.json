@@ -19,11 +19,15 @@
   },
   "homepage": "https://github.com/CodingSea/cipher-back-end#readme",
   "dependencies": {
+    "cloudinary": "^2.7.0",
     "cors": "^2.8.5",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
+    "http": "^0.0.1-security",
     "mongoose": "^8.17.1",
     "morgan": "^1.10.1",
-    "node": "^22.18.0"
+    "multer": "^2.0.2",
+    "node": "^22.18.0",
+    "websocket": "^1.0.35"
   }
 }
