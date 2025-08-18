@@ -94,7 +94,7 @@ async function createChannel(req, res)
     try
     {
         const server = await Server.findById(req.params.serverId);
-        server.channels = req.body;
+        server.channels[server.channels.length] = req.body;
         await server.save();
         res.status(201).json(server.channels);
     }
@@ -108,10 +108,11 @@ async function getAllChannelsInServer(req, res)
 {
     try
     {
-        const allChannels = await Server.findById(req.params.serverId).channels;
-        if (allChannels.length)
+        const allChannels = await Server.findById(req.params.serverId);
+        console.log(allChannels.channels);
+        if (allChannels.channels.length)
         {
-            res.status(200).json(allChannels);
+            res.status(200).json(allChannels.channels);
         }
         else
         {

@@ -27,6 +27,34 @@ async function updateUser(req, res)
     try
     {
         const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
+
+        /*
+        if(updatedUser.profileImage)
+        {
+            cloudinary.uploader.destroy(updatedUser.profileImageId, function(error, result)
+            {
+                console.log(result, error);
+            });
+        }*/
+
+        console.log(req.file);
+
+        /*
+        if (req.file)
+        {
+            // taken from the internet
+            const b64 = Buffer.from(req.file.buffer).toString("base64");
+            let dataURI = "data:" + req.file.mimetype + ";base64," + b64;
+            const cldRes = await handleUpload(dataURI);
+
+            updatedUser.profileImage = cldRes.secure_url;
+            updatedUser.profileImageId = cldRes.public_id;
+        }
+
+        await updatedUser.save();
+
+        */
+
         if (updatedUser)
         {
             res.status(200).json(updatedUser);
