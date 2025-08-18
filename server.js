@@ -25,6 +25,9 @@ app.use("/dm",dmRoutes);
 const messageRoutes = require("./routes/messageRoutes");
 app.use("/message",messageRoutes)
 
+const authRoutes = require("./routes/authRoutes")
+app.use("/auth",authRoutes)
+
 app.listen(process.env.PORT, () =>
 {
     console.log("Listening to Port");

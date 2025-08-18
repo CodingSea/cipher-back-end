@@ -1,7 +1,6 @@
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const { register } = require("module");
 const SECRET  =  process.env.SECRET;
 async function createUser(req, res)
 {
@@ -83,9 +82,9 @@ async function getUser(req, res)
 
 
 // POST /auth/register
-exports.register = async (req, res) => {
+const register = async (req, res) => {
   try {
-    const { username, password } = req.body
+    const { username, password, email } = req.body
 
     // check if username taken
     const existing = await User.findOne({ username })
@@ -97,17 +96,17 @@ exports.register = async (req, res) => {
     const passwordHash = await bcrypt.hash(password, 8)
 
     // create user
-    const newUser = new User({ username, passwordHash })
+    const newUser = new User({ username, email, passwordHash })
     await newUser.save()
 
     res.status(201).json({ message: 'User registered successfully' })
   } catch (err) {
-    res.status(500).json({ message: 'Server error' })
+    res.status(500).json({ err })
   }
 }
 
 // POST /auth/login
-exports.login = async (req, res) => {
+const login = async (req, res) => {
   try {
     const { username, password } = req.body
     const user = await User.findOne({ username })
@@ -135,5 +134,7 @@ module.exports = {
     createUser,
     updateUser,
     allUsers,
-    getUser
+    getUser,
+    register,
+    login
 }
