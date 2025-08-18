@@ -83,10 +83,12 @@ async function updateMessage(req, res)
     try
     {
         const updatedMessage = await Message.findByIdAndUpdate(req.params.id, req.body, { new: true })
-        if(updateMessage){
-        res.status(200).json(updatedMessage);
-        }else{
-           res.status(204); 
+        if (updateMessage)
+        {
+            res.status(200).json(updatedMessage);
+        } else
+        {
+            res.status(204);
         }
     } catch (error)
     {

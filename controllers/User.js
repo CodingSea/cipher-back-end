@@ -28,9 +28,11 @@ async function updateUser(req, res)
     try
     {
         const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
-        if(updatedUser){
+        if (updatedUser)
+        {
             res.status(200).json(updatedUser);
-        }else{
+        } else
+        {
             res.status(204);
         }
     }
@@ -45,9 +47,11 @@ async function allUsers(req, res)
     try
     {
         const allUserInfo = await User.find();
-        if(allUserInfo.length){
+        if (allUserInfo.length)
+        {
             res.status(200).json(allUserInfo);
-        }else{
+        } else
+        {
             res.status(204);
         }
     }
@@ -63,9 +67,11 @@ async function getUser(req, res)
     try
     {
         const userInfo = await User.findById(req.params.id);
-        if(userInfo){
+        if (userInfo)
+        {
             res.status(200).json(userInfo)
-        }else{
+        } else
+        {
             res.status(204);
         }
 
