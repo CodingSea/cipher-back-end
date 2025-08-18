@@ -35,9 +35,8 @@ app.use("/dm",dmRoutes);
 const messageRoutes = require("./routes/messageRoutes");
 app.use("/message",messageRoutes)
 
-/*
-const server = http.createServer();
-server.listen(process.env.PORT);*/
+const authRoutes = require("./routes/authRoutes")
+app.use("/auth",authRoutes)
 
 app.listen(process.env.PORT, () =>
 {
