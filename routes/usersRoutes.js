@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const UserController = require("../controllers/User");
-const secureRoute = require('../middleware/secureRoute')
+const secureRoute = require('../middleware/secureRoute');
 
 router.post("/new", UserController.createUser);//create new user
 router.put("/:id",secureRoute ,UserController.updateUser);//Update the user
