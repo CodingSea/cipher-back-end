@@ -1,29 +1,30 @@
 const express = require('express');
 const router = express.Router();
 const serverController = require("../controllers/Server");
+const secureRoute = require("../middleware/secureRoute");
 
 
-router.post("/new", serverController.createServer);
+router.post("/new", secureRoute, serverController.createServer);
 
-router.get("/", serverController.getAllServers);
+router.get("/", secureRoute, serverController.getAllServers);
 
-router.get("/:id", serverController.getServer);
+router.get("/:id", secureRoute, serverController.getServer);
 
-router.put("/:id", serverController.updateServer);
+router.put("/:id", secureRoute, serverController.updateServer);
 
-router.delete("/:id", serverController.deleteServer);
+router.delete("/:id", secureRoute, serverController.deleteServer);
 
 
 // Channel Routes
 
-router.post("/:serverId/channel/new", serverController.createChannel);
+router.post("/:serverId/channel/new", secureRoute, serverController.createChannel);
 
-router.get("/:serverId/channel/", serverController.getAllChannelsInServer);
+router.get("/:serverId/channel/", secureRoute, serverController.getAllChannelsInServer);
 
-router.get("/:serverId/channel/:id", serverController.getChannel);
+router.get("/:serverId/channel/:id", secureRoute, serverController.getChannel);
 
-router.put("/:serverId/channel/:id", serverController.updateChannel);
+router.put("/:serverId/channel/:id", secureRoute, serverController.updateChannel);
 
-router.delete("/:serverId/channel/:id", serverController.deleteChannel);
+router.delete("/:serverId/channel/:id", secureRoute, serverController.deleteChannel);
 
 module.exports = router;
