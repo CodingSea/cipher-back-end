@@ -155,6 +155,7 @@ const login = async (req, res) => {
     const token = jwt.sign(payload, SECRET, { expiresIn: '1h' }) //Look at the docs for more 'expires in' options
     res.json({ token })
   } catch (err) {
+    console.log(err)
     res.status(500).json({ message: 'Server error' })
   }
 }
