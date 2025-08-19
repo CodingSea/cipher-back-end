@@ -33,6 +33,26 @@ async function getAllServers(req, res)
     }
 }
 
+async function getAllServers(req, res)
+{
+    try
+    {
+        const allServers = await Server.find();
+        if (allServers.length)
+        {
+            res.status(200).json(allServers);
+        }
+        else
+        {
+            res.status(204);
+        }
+    }
+    catch (error)
+    {
+        res.status(500).json({ error: error.message })
+    }
+}
+
 async function getServer(req, res)
 {
     try
@@ -109,6 +129,7 @@ async function getAllChannelsInServer(req, res)
     try
     {
         const allChannels = await Server.findById(req.params.serverId);
+         
         if (allChannels.channels.length)
         {
             res.status(200).json(allChannels.channels);
