@@ -15,7 +15,7 @@ const serverSchema = new mongoose.Schema
             users: [
                 {
                     user: { type: mongoose.Types.ObjectId, ref: 'User', required: true },
-                    role: { type: String, enum: ['Member', 'Admin', 'Owner'] }
+                    role: { type: String, enum: ['Member', 'Admin', 'Owner'], default:"Member" }
                 }
             ],
             channels: [channelSchema],
