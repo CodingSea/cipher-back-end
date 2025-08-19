@@ -6,10 +6,11 @@ async function createMessage(req, res)
     try
     {
         const createdMessage = await Message.create(req.body);
-        if (createMessage)
+        if (createdMessage)
         {
             res.status(201).json(createdMessage)
-        } else
+        } 
+        else
         {
             res.status(204);
 
@@ -17,7 +18,7 @@ async function createMessage(req, res)
 
     } catch (error)
     {
-        res.status(500).json({ error: err.message })
+        res.status(500).json({ error: error.message })
     }
 }
 
@@ -30,14 +31,15 @@ async function getAllMessages(req, res)
         if (AllMessage.length)
         {
             res.status(200).json(AllMessage)
-        } else
+        } 
+        else
         {
             res.status(204);
 
         }
     } catch (error)
     {
-        res.status(500).json({ error: err.message })
+        res.status(500).json({ error: error.message })
     }
 }
 
@@ -49,13 +51,14 @@ async function getMessage(req, res)
         if (MessageInfo)
         {
             res.status(200).json(MessageInfo);
-        } else
+        } 
+        else
         {
             res.status(204);
         }
     } catch (error)
     {
-        res.status(500).json({ error: err.message })
+        res.status(500).json({ error: error.message })
     }
 }
 
@@ -67,13 +70,14 @@ async function deleteMessage(req, res)
         if (deleteMessage)
         {
             res.status(200).json(deletedMessage);
-        } else
+        } 
+        else
         {
             res.status(204);
         }
     } catch (error)
     {
-        res.status(500).json({ error: err.message })
+        res.status(500).json({ error: error.message })
 
     }
 }
@@ -86,7 +90,8 @@ async function updateMessage(req, res)
         if (updateMessage)
         {
             res.status(200).json(updatedMessage);
-        } else
+        } 
+        else
         {
             res.status(204);
         }

@@ -1,3 +1,4 @@
+const Message = require("../models/Message");
 const Server = require("../models/Server");
 
 async function createServer(req, res)
@@ -178,6 +179,40 @@ async function deleteChannel(req, res)
     }
 }
 
+// Messages
+
+async function createChannelMessage(req, res)
+{
+    try
+    {
+        const createdMessage = await Message.create(req.body);
+        const selectedServer = await Server.findById(req.params.serverId);
+        console.log(selectedServer);
+        const Channel = selectedServer.channels.find((x) =>
+        {
+            return x._id == req.params.id;
+        })
+        Channel.messages.push(createdMessage);
+        
+        await Channel.save();
+        await selectedServer.save();
+
+        if (createdMessage)
+        {
+            res.status(201).json(createdMessage)
+        } 
+        else
+        {
+            res.status(204);
+
+        }
+    }
+    catch (error)
+    {
+        res.status(500).json({ error: error.message })
+    }
+}
+
 module.exports =
 {
     createServer,
@@ -189,5 +224,6 @@ module.exports =
     getAllChannelsInServer,
     getChannel,
     updateChannel,
-    deleteChannel
+    deleteChannel,
+    createChannelMessage
 }
