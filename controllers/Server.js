@@ -222,7 +222,7 @@ async function getChannelMessages(req, res)
         {
             return x._id == req.params.id;
         })
-
+        
         const messages = await Message.find({ _id: { $in: Channel.messages } }).sort({createdAt: 1}).populate("user");
 
         if (messages)
