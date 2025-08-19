@@ -31,6 +31,6 @@ router.delete("/:serverId/channel/:id", secureRoute, serverController.deleteChan
 
 router.post("/:serverId/channel/:id/message/new", secureRoute, serverController.createChannelMessage);
 
-router.get("/:serverId/channel/:id/message", secureRoute, serverController.createChannelMessage);
+router.get("/:serverId/channel/:id/message", serverController.getChannelMessages);
 
 module.exports = router;
