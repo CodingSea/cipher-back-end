@@ -129,7 +129,7 @@ async function getAllChannelsInServer(req, res)
     try
     {
         const allChannels = await Server.findById(req.params.serverId);
-         
+
         if (allChannels.channels.length)
         {
             res.status(200).json(allChannels.channels);
