@@ -1,3 +1,4 @@
+const { channel } = require("diagnostics_channel");
 const Message = require("../models/Message");
 const Server = require("../models/Server");
 
@@ -187,7 +188,6 @@ async function createChannelMessage(req, res)
     {
         const createdMessage = await Message.create(req.body);
         const selectedServer = await Server.findById(req.params.serverId);
-        console.log(selectedServer);
         const Channel = selectedServer.channels.find((x) =>
         {
             return x._id == req.params.id;
@@ -213,6 +213,34 @@ async function createChannelMessage(req, res)
     }
 }
 
+async function getChannelMessages(req, res)
+{
+    try
+    {
+        const selectedServer = await Server.findById(req.params.serverId);
+        const Channel = selectedServer.channels.find((x) =>
+        {
+            return x._id == req.params.id;
+        })
+
+        const messages = Channel.messages;
+
+        if (messages)
+        {
+            res.status(200).json(messages)
+        } 
+        else
+        {
+            res.status(204);
+
+        }
+    }
+    catch (error)
+    {
+        res.status(500).json({ error: error.message })
+    }
+}
+
 module.exports =
 {
     createServer,
@@ -225,5 +253,6 @@ module.exports =
     getChannel,
     updateChannel,
     deleteChannel,
-    createChannelMessage
+    createChannelMessage,
+    getChannelMessages
 }
