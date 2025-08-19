@@ -27,8 +27,6 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.17.1",
     "morgan": "^1.10.1",
-    "multer": "^2.0.2",
-    "node": "^22.18.0",
-    "websocket": "^1.0.35"
+    "node": "^22.18.0"
   }
 }

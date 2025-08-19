@@ -5,7 +5,6 @@ const mongoose = require("mongoose");
 const morgan = require("morgan");
 const cors = require("cors");
 const cloudinary = require('cloudinary').v2;
-const webSocketServer = require("websocket").server;
 const http = require("http");
 
 // middleware
@@ -42,17 +41,3 @@ app.listen(process.env.PORT, () =>
 {
     console.log("Listening to Port");
 })
-
-/*
-const wsServer = new webSocketServer(
-    {
-        httpServer: server
-    }
-);
-
-const clients = {};
-
-wsServer.on("request", function(request)
-{
-    
-});*/
