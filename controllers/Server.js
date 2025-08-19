@@ -17,27 +17,7 @@ async function getAllServers(req, res)
 {
     try
     {
-        const allServers = await Server.find();
-        if (allServers.length)
-        {
-            res.status(200).json(allServers);
-        }
-        else
-        {
-            res.status(204);
-        }
-    }
-    catch (error)
-    {
-        res.status(500).json({ error: error.message })
-    }
-}
-
-async function getAllServers(req, res)
-{
-    try
-    {
-        const allServers = await Server.find();
+        const allServers = await Server.find({"users.user": req.user.id});
         if (allServers.length)
         {
             res.status(200).json(allServers);
