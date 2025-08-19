@@ -19,7 +19,7 @@ async function getAllServers(req, res)
 {
     try
     {
-        const allServers = await Server.find({"users.user": req.user.id});
+        const allServers = await Server.find({ "users.user": req.user.id });
         if (allServers.length)
         {
             res.status(200).json(allServers);
@@ -193,14 +193,14 @@ async function createChannelMessage(req, res)
             return x._id == req.params.id;
         })
         Channel.messages.push(createdMessage);
-        
+
         await Channel.save();
         await selectedServer.save();
 
         if (createdMessage)
         {
             res.status(201).json(createdMessage)
-        } 
+        }
         else
         {
             res.status(204);
@@ -223,12 +223,12 @@ async function getChannelMessages(req, res)
             return x._id == req.params.id;
         })
 
-        const messages = Channel.messages;
+        const messages = await Message.find({ _id: { $in: Channel.messages } }).sort({createdAt: 1}).populate("user");
 
         if (messages)
         {
             res.status(200).json(messages)
-        } 
+        }
         else
         {
             res.status(204);
