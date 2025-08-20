@@ -57,7 +57,7 @@ io.on("connection", (socket) =>
     {
         try
         {
-            const allMessages = await Message.find().sort({createdAt: 1}).exec();
+            const allMessages = await Message.find().populate("user").sort({createdAt: -1}).exec();
             socket.emit("Message", allMessages);
         }
         catch(error)
