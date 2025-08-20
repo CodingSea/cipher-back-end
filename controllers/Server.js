@@ -174,8 +174,6 @@ async function deleteChannel(req, res)
 {
     try
     {
-        console.log(req.params.serverId);
-        console.log(req.params.id);
         const server = await Server.findById(req.params.serverId);
         const channelIndex = server.channels.findIndex(channel => channel._id === req.params.id);
         server.channels.splice(channelIndex, 1);
