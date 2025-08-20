@@ -151,7 +151,10 @@ async function updateChannel(req, res)
 {
     try
     {
-        const updatedChannel = await Server.findById(req.params.serverId).channels.findByIdAndUpdate(req.params.id, req.body);
+        const server = await Server.findById(req.params.serverId);
+        const updatedChannel = server.channels.id(req.params.id);
+        updatedChannel.title = req.body.title;
+        await server.save();
         if (updatedChannel)
         {
             res.status(200).json(updatedChannel);
